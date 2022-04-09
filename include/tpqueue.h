@@ -1,4 +1,5 @@
 // Copyright 2022 NNTU-CS
+#include <string>
 #ifndef INCLUDE_TSTACK_H_
 #define INCLUDE_TSTACK_H_
 
