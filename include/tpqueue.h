@@ -1,7 +1,7 @@
 // Copyright 2022 NNTU-CS
 #include <string>
-#ifndef INCLUDE_TSTACK_H_
-#define INCLUDE_TSTACK_H_
+#ifndef INCLUDE_TPQUEUE_H_
+#define INCLUDE_TPQUEUE_H_
 
 template <typename T, int size>
 class TPQueue {
@@ -59,4 +59,4 @@ struct SYM {
 	int prior;
 };
 
-#endif  // INCLUDE_TSTACK_H_
+#endif  // INCLUDE_TPQUEUE_H_
