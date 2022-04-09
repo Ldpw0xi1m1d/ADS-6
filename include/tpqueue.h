@@ -1,58 +1,61 @@
 // Copyright 2022 NNTU-CS
-#ifndef INCLUDE_TPQUEUE_H_
-#define INCLUDE_TPQUEUE_H_
+#ifndef INCLUDE_TSTACK_H_
+#define INCLUDE_TSTACK_H_
 
-template<typename T, int size>
+template <typename T, int size>
 class TPQueue {
-  private:
+
+private:
 	T arr[size];
 	int first;
 	int last;
 
 public:
-	TQueue(): first(0),last(0){}
+	TPQueue() : first(0), last(0) {}
 
-	void push(T& value) {
+	void push(T value) {
 		if (last - first >= size) {
 			throw std::string("Full");
 		} else {
-			int i = last - 1;
+			int i = last-1;
 			bool flag = 0;
-			while (i >= first && value.prior > arr[i].prior) {
+			while ((i >= first) && (value.prior > arr[i].prior)) {
 				flag = 1;
 				arr[i + 1] = arr[i];
 				arr[i] = value;
 				i--;
 			}
 			if (flag == 0) {
-				arr[last] = value;
+				arr[last++] = value;
 				last++;
 			}
 		}
 	}
 
 	T pop() {
-		if (first == last) {
-			throw std::string("Empty!");
-		} else return arr[(first++) % size];
-	}
+			return arr[(first++) % size];
+		}
 
 	T front() {
 		if (first == last) {
 			throw std::string("Empty!");
-		} else return arr[first % size];
+		} else {
+			return arr[first % size];
+		}
 	}
 
 	T back() {
 		if (first == last) {
 			throw std::string("Empty!");
-		} else return arr[(last - 1) % size];
+		} else {
+			return arr[(last - 1) % size];
+		}
 	}
 };
 
 struct SYM {
-  char ch;
-  int prior;
+	char ch;
+	int prior;
 };
 
-#endif  // INCLUDE_TPQUEUE_H_
+#endif  // INCLUDE_TSTACK_H_
