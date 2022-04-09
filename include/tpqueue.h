@@ -2,15 +2,19 @@
 #ifndef INCLUDE_TPQUEUE_H_
 #define INCLUDE_TPQUEUE_H_
 
-template <typename T, int size>
+template <typename T, int sized>
 class TPQueue {
  private:
-        T arr[size];
+        T *arr;
+        int size;
         int first;
         int last;
 
  public:
-      TPQueue() : first(0), last(0) {}
+      TPQueue() : first(0), last(0) {
+            size = sized;
+            arr = new T[size];
+      }
 
        void push(T value) {
                 int i = last-1;
