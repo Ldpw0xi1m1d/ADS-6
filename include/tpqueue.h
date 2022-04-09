@@ -4,22 +4,22 @@
 
 template <typename T, int size>
 class TPQueue {
-private: 
-        T* arr[size];
+ private:
+        T arr[size];
         int first;
         int last;
 
-public: 
-	TPQueue() : first(0), last(0) {}
+ public:
+      TPQueue() : first(0), last(0) {}
 
-	void push(T& value) {
+       void push(T value) {
                 int i = last-1;
                 bool flag = 0;
                    while ((i >= first) && (value.prior > arr[i].prior)) {
                                 flag = 1;
                                 arr[i + 1] = arr[i];
                                 arr[i] = value;
-				i--;
+                                i--;
                         }
                         if (flag == 0) {
                              arr[last++] = value;
