@@ -16,9 +16,6 @@ public:
 	TPQueue() : first(0), last(0) {}
 
 	void push(T value) {
-                if (last - first >= size) {
-                    throw std::string("Full");
-                  } else {
                         int i = last-1;
                         bool flag = 0;
                         while ((i >= first) && (value.prior > arr[i].prior)) {
@@ -31,7 +28,6 @@ public:
                                arr[last++] = value;
                                last++;
                         }
-                }
          }
 
         T pop() {
@@ -39,19 +35,11 @@ public:
                 }
 
         T front() {
-               if (first == last) {
-                   throw std::string("Empty!");
-                  } else {
                     return arr[first % size];
-                }
          }
 
         T back() {
-               if (first == last) {
-                     throw std::string("Empty!");
-                } else {
                      return arr[(last - 1) % size];
-               }
         }
 };
 
